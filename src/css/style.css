@@ -48,6 +48,36 @@ img {
 	inherits: false;
 	initial-value: 13%;
 } */
+p::selection {
+	color: white;
+	background-color: #0000003e;
+}
+
+span::selection {
+	color: white;
+	background-color: #0000003e;
+}
+
+h1::selection {
+	color: white;
+	background-color: #0000003e;
+}
+
+h2::selection {
+	color: white;
+	background-color: #0000003e;
+}
+
+div::selection {
+	color: white;
+	background-color: #0000003e;
+}
+
+li::selection {
+	color: white;
+	background-color: #0000003e;
+}
+
 
 html {
 	font-family: "Inter", sans-serif;
@@ -64,6 +94,19 @@ html {
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;
+	span {
+		position: relative;
+	}
+	span::after {
+		content: "";
+		display: block;
+		position: absolute;
+		bottom: -1px;
+		right: 0px;
+		width: 75px;
+		height: 2px;
+		background-color: #000;
+	}
 }
 
 .promo {
@@ -115,6 +158,7 @@ html {
 }
 
 .promo__adress {
+	position: relative;
 	margin-top: 100px;
 	color: var(--light-color, #f5f5f7);
 	font-size: 16px;
@@ -127,6 +171,16 @@ html {
 	a {
 		color: inherit; /* наследуем у родителя */
 		text-decoration: none;
+	}
+	&::before {
+		position: absolute;
+		content: "";
+		display: block;
+		left: -45px;
+		top: -17px;
+		width: 40px;
+		height: 49px;
+		background: url(../icons/arrow.svg) center center / cover no-repeat;
 	}
 }
 
@@ -192,6 +246,7 @@ html {
 		padding: 0;
 	}
 	li {
+		position: relative;
 		margin-top: 10px;
 		list-style-type: none;
 		color: var(--dark-color, #221f20);
@@ -199,6 +254,28 @@ html {
 		font-style: normal;
 		font-weight: 400;
 		line-height: normal;
+		&:first-child::before {
+			/* перед первым ребенком */
+			content: "";
+			display: block;
+			position: absolute;
+			width: 15px;
+			height: 15px;
+			left: -30px;
+			top: 2px;
+			background: url(../icons/camera.svg) center center / cover no-repeat;
+		}
+		&:nth-child(3)::before {
+			/* перед третим элементом */
+			content: "";
+			display: block;
+			position: absolute;
+			width: 15px;
+			height: 15px;
+			left: -30px;
+			top: 2px;
+			background: url(../icons/edit.svg) center center / cover no-repeat;
+		}
 	}
 }
 
